@@ -24,7 +24,7 @@ public class MusicLibrary {
     }
 
     public HashSet<String> getTracksByGenre(String genre) {
-        // Инициализируем список названий треков musicTrackNames.
+        // Инициализируем набор названий треков musicTrackNames.
         HashSet<String> musicTrackNames = new HashSet<>();
 
         // Проходим по всем энтри в musicLibrary.
@@ -35,15 +35,15 @@ public class MusicLibrary {
             if (genreInLibrary.equals(genre)) {
                 HashSet<MusicTrack> musicTracks = genreEntry.getValue();
 
-                // Проходимся по плейлисту и добавляем в список названий треков (musicTrackName) названия треков подходящего жанра.
+                // Проходимся по плейлисту и добавляем в набор названий треков (musicTrackName) названия треков подходящего жанра.
                 for (MusicTrack musicTrack : musicTracks) {
                     musicTrackNames.add(musicTrack.getName());
                 }
-                // Возвращаем список названий треков с подходящим жанром.
+                // Возвращаем набор названий треков с подходящим жанром.
                 return musicTrackNames;
             }
         }
-        // Если соответствующий жанр не был найден, возвращаем пустой список названий треков.
+        // Если соответствующий жанр не был найден, возвращаем пустой набор названий треков.
         return musicTrackNames;
     }
 
