@@ -2,16 +2,16 @@ package lecture2.homework1.book;
 
 public class Book implements Displayable {
 
-    private String name;
+    private String title;
     private String author;
     private int yearPublished;
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAuthor() {
@@ -33,6 +33,6 @@ public class Book implements Displayable {
     @Override
     public void display() {
         System.out.printf("Книга \"%s\" автора %s была издана в %d году",
-                getName(), getAuthor(), getYearPublished());
+                getTitle(), getAuthor(), getYearPublished());
     }
 }
