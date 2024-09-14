@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Book {
 
-    private String title;
-    private String author;
+    private final String title;
+    private final String author;
 
     public Book(String name, String author) {
         this.title = name;
@@ -16,16 +16,8 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getAuthor() {
         return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     @Override

@@ -3,7 +3,7 @@ package lecture2.homework1.student;
 public class Student implements Printable {
 
     private String name;
-    private int gradeBookId;
+    private String gradeBookId;
     private double gpa;
 
     public String getName() {
@@ -14,11 +14,11 @@ public class Student implements Printable {
         this.name = name;
     }
 
-    public int getGradeBookId() {
+    public String getGradeBookId() {
         return gradeBookId;
     }
 
-    public void setGradeBookId(int gradeBookId) {
+    public void setGradeBookId(String gradeBookId) {
         this.gradeBookId = gradeBookId;
     }
 

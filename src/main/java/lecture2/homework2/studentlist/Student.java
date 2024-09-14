@@ -2,32 +2,34 @@ package lecture2.homework2.studentlist;
 
 public class Student {
 
-    private int id;
-    private String name;
+    private final String id;
+    private final String name;
 
-    public Student(int id, String name) {
+    public Student() {
+        this.id = "unknown";
+        this.name = "unknown";
+    }
+
+    public Student(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public Student(String name) {
+        this.id = "id_" + name;
+        this.name = name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public String toString() {
-        return String.format("StudentId: %d, Name: %s;", getId(), getName());
+        return String.format("StudentId: %s, Name: %s;", getId(), getName());
     }
 }

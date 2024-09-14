@@ -5,7 +5,7 @@ public class Main {
 
         Student student = new Student();
         student.setName("Егор");
-        student.setGradeBookId(90235);
+        student.setGradeBookId("90235");
         student.setGpa(8.8d);
 
         student.print();
