@@ -1,10 +1,11 @@
 package lecture2.homework2.studentlist;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentManager {
 
-    private final ArrayList<Student> listOfStudents = new ArrayList<>();
+    private final List<Student> listOfStudents = new ArrayList<>();
 
     public void addStudent(Student student) {
         listOfStudents.add(student);

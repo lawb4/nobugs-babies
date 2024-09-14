@@ -8,7 +8,7 @@ public class MusicLibrary {
 
     // Представим, что new HashSet<>() = набор треков (плейлист).
     // Музыкальная библиотека состоит из жанров и плейлистов, соответствующих этим жанрам.
-    private final HashMap<String, HashSet<MusicTrack>> musicLibrary = new HashMap<>();
+    private final Map<String, HashSet<MusicTrack>> musicLibrary = new HashMap<>();
 
     public void addMusicTrack(MusicTrack musicTrack) {
         // Cоздать новый плейлист по жанру. Если жанр уже существует, вернуть плейлист по данному жанру.
