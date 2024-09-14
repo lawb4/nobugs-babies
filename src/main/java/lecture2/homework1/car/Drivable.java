@@ -1,4 +1,4 @@
-package lecture2.homework.car;
+package lecture2.homework1.car;
 
 public interface Drivable {
 

@@ -1,4 +1,4 @@
-package lecture2.homework.point;
+package lecture2.homework1.point;
 
 public class Point implements Movable {
 

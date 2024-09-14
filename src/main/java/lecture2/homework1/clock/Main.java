@@ -1,4 +1,4 @@
-package lecture2.homework.clock;
+package lecture2.homework1.clock;
 
 public class Main {
     public static void main(String[] args) {
