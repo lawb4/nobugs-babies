@@ -32,8 +32,7 @@ public class UnicornsTest {
 
         unicorn.setColorTail("orange");
 
-        UnicornRequests.updateUnicornTailColor(unicornId,
-                unicorn.toJson());
+        UnicornRequests.updateUnicornTailColor(unicornId, unicorn.toJson());
 
         UnicornAsserts.assertUnicornHasValidColorTail(unicornId, "orange");
     }
