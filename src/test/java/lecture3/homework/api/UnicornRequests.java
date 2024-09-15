@@ -8,8 +8,9 @@ import static org.hamcrest.Matchers.hasKey;
 
 public class UnicornRequests {
 
-    protected static final String UNICORNS_API_PATH = "/unicorns-v3";
+    protected static final String UNICORNS_API_PATH = "/unicorns-v4/";
     private static final String ID = "_id";
+    protected static final String COLOR_TAIL = "colorTail";
 
     public static String createUnicornJsonBody(String name, String colorTail) {
         return String.format("{\"name\": \"%s\", \"colorTail\": \"%s\"}", name, colorTail);
@@ -32,7 +33,7 @@ public class UnicornRequests {
 
     public static void getUnicorn(String unicornId) {
         given()
-                .get(UNICORNS_API_PATH + "/" + unicornId)
+                .get(UNICORNS_API_PATH + unicornId)
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK);
@@ -44,7 +45,7 @@ public class UnicornRequests {
                 .body(updatedBody)
                 .contentType(ContentType.JSON)
                 .when()
-                .put(UNICORNS_API_PATH + "/" + unicornId)
+                .put(UNICORNS_API_PATH + unicornId)
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK);
@@ -52,7 +53,7 @@ public class UnicornRequests {
 
     public static void deleteUnicorn(String unicornId) {
         given()
-                .delete(UNICORNS_API_PATH + "/" + unicornId)
+                .delete(UNICORNS_API_PATH + unicornId)
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_OK);
