@@ -5,13 +5,11 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import lecture3.homework.api.UnicornAsserts;
 import lecture3.homework.api.UnicornRequests;
+import lecture3.homework.api.models.Unicorn;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class UnicornsTest {
-
-    private final String UNICORN_BODY_EXAMPLE = UnicornRequests.createUnicornJsonBody
-            ("Rainbow Dash", "red");
 
     @BeforeAll
     public static void setupTests() {
@@ -21,24 +19,29 @@ public class UnicornsTest {
 
     @Test
     public void userShouldBeAbleToCreateUnicorn() {
-        String unicornId = UnicornRequests.createUnicorn(UNICORN_BODY_EXAMPLE);
+        Unicorn unicorn = new Unicorn("Rainbow Dash", "red");
+        String unicornId = UnicornRequests.createUnicorn(unicorn.toJson());
 
         UnicornRequests.getUnicorn(unicornId);
     }
 
     @Test
     public void userShouldBeAbleToChangeUnicornTailColor() {
-        String unicornId = UnicornRequests.createUnicorn(UNICORN_BODY_EXAMPLE);
+        Unicorn unicorn = new Unicorn("Rainbow Dash", "red");
+        String unicornId = UnicornRequests.createUnicorn(unicorn.toJson());
+
+        unicorn.setColorTail("orange");
 
         UnicornRequests.updateUnicornTailColor(unicornId,
-                UnicornRequests.createUnicornJsonBody("Rainbow Dash", "orange"));
+                unicorn.toJson());
 
         UnicornAsserts.assertUnicornHasValidColorTail(unicornId, "orange");
     }
 
     @Test
     public void userShouldBeAbleToDeleteUnicorn() {
-        String unicornId = UnicornRequests.createUnicorn(UNICORN_BODY_EXAMPLE);
+        Unicorn unicorn = new Unicorn("Rainbow Dash", "red");
+        String unicornId = UnicornRequests.createUnicorn(unicorn.toJson());
 
         UnicornRequests.deleteUnicorn(unicornId);
         UnicornAsserts.assertUnicornNotExists(unicornId);

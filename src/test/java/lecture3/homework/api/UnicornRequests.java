@@ -12,10 +12,6 @@ public class UnicornRequests {
     private static final String ID = "_id";
     protected static final String COLOR_TAIL = "colorTail";
 
-    public static String createUnicornJsonBody(String name, String colorTail) {
-        return String.format("{\"name\": \"%s\", \"colorTail\": \"%s\"}", name, colorTail);
-    }
-
     public static String createUnicorn(String body) {
 
         return given()
