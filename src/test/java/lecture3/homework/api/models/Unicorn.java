@@ -1,20 +1,19 @@
 package lecture3.homework.api.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.annotations.SerializedName;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Unicorn {
 
     private String name;
     private String colorTail;
-
-    public Unicorn(String name, String colorTail) {
-        this.name = name;
-        this.colorTail = colorTail;
-    }
-
-    public void setColorTail(String colorTail) {
-        this.colorTail = colorTail;
-    }
-
-    public String toJson() {
-        return String.format("{\"name\": \"%s\", \"colorTail\": \"%s\"}", name, colorTail);
-    }
+    @SerializedName("_id")
+    private String id;
 }

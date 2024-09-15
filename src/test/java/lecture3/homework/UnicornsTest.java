@@ -14,35 +14,41 @@ public class UnicornsTest {
     @BeforeAll
     public static void setupTests() {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-        RestAssured.baseURI = "https://crudcrud.com/api/22f58aa1029345aa8facf429d3da9afe";
+        RestAssured.baseURI = "https://crudcrud.com/api/fa99ade4d11048b2af182c564229d07f";
     }
 
     @Test
     public void userShouldBeAbleToCreateUnicorn() {
-        Unicorn unicorn = new Unicorn("Rainbow Dash", "red");
-        String unicornId = UnicornRequests.createUnicorn(unicorn.toJson());
+        Unicorn unicorn = Unicorn.builder()
+                .name("Rainbow Dash")
+                .colorTail("red").build();
 
-        UnicornRequests.getUnicorn(unicornId);
+        Unicorn createdUnicorn = UnicornRequests.createUnicorn(unicorn);
+
+        UnicornRequests.getUnicorn(createdUnicorn.getId());
     }
 
     @Test
     public void userShouldBeAbleToChangeUnicornTailColor() {
-        Unicorn unicorn = new Unicorn("Rainbow Dash", "red");
-        String unicornId = UnicornRequests.createUnicorn(unicorn.toJson());
+        Unicorn unicorn = Unicorn.builder()
+                .name("Rainbow Dash")
+                .colorTail("red").build();
 
-        unicorn.setColorTail("orange");
+        Unicorn createdUnicorn = UnicornRequests.createUnicorn(unicorn);
 
-        UnicornRequests.updateUnicornTailColor(unicornId, unicorn.toJson());
-
-        UnicornAsserts.assertUnicornHasValidColorTail(unicornId, "orange");
+        UnicornRequests.updateUnicornColorTail(createdUnicorn, "orange");
+        UnicornAsserts.assertUnicornHasValidColorTail(createdUnicorn.getId(), "orange");
     }
 
     @Test
     public void userShouldBeAbleToDeleteUnicorn() {
-        Unicorn unicorn = new Unicorn("Rainbow Dash", "red");
-        String unicornId = UnicornRequests.createUnicorn(unicorn.toJson());
+        Unicorn unicorn = Unicorn.builder()
+                .name("Rainbow Dash")
+                .colorTail("red").build();
 
-        UnicornRequests.deleteUnicorn(unicornId);
-        UnicornAsserts.assertUnicornNotExists(unicornId);
+        Unicorn createdUnicorn = UnicornRequests.createUnicorn(unicorn);
+
+        UnicornRequests.deleteUnicorn(createdUnicorn.getId());
+        UnicornAsserts.assertUnicornNotExists(createdUnicorn.getId());
     }
 }
