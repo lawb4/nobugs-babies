@@ -1,4 +1,4 @@
-package lecture2.task1;
+package lecture2.practice;
 
 public class BankAccount implements Printable {
     private String accountName;
