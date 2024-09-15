@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.hasKey;
 
 public class UnicornRequests {
 
-    protected static final String UNICORNS_API_PATH = "/unicorns-v4/";
+    protected static final String UNICORNS_API_PATH = "/unicorns-v5/";
     private static final String ID = "_id";
     protected static final String COLOR_TAIL = "colorTail";
 
