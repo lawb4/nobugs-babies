@@ -4,7 +4,7 @@ import org.apache.http.HttpStatus;
 
 import static io.restassured.RestAssured.given;
 
-public class NegativeAsserts {
+public class StudentAsserts {
 
     public static void assertStudentNotExists(String studentId) {
         given()

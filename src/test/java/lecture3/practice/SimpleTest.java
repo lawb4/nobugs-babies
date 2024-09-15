@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import lecture3.practice.api.StudentRequests;
-import lecture3.practice.api.NegativeAsserts;
+import lecture3.practice.api.StudentAsserts;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -47,7 +47,7 @@ public class SimpleTest {
         // Шаг 2. Удаление студента.
         StudentRequests.deleteStudent(studentId);
         // Шаг 3. Проверить, что студента больше не существует.
-        NegativeAsserts.assertStudentNotExists(studentId);
+        StudentAsserts.assertStudentNotExists(studentId);
     }
 }
 
