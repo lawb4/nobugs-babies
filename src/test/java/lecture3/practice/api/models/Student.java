@@ -1,16 +1,19 @@
 package lecture3.practice.api.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.google.gson.annotations.SerializedName;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Student {
 
     private String name;
     private int grade;
-
-    public Student(String name, int grade) {
-        this.name = name;
-        this.grade = grade;
-    }
-
-    public String toJson() {
-        return String.format("{\"name\": \"%s\", \"grade\": \"%s\"}", name, grade);
-    }
+    @SerializedName("_id")
+    private String id;
 }

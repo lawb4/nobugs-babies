@@ -14,33 +14,39 @@ public class SimpleTest {
     @BeforeAll
     public static void setupTests() {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-        RestAssured.baseURI = "https://crudcrud.com/api/22f58aa1029345aa8facf429d3da9afe";
+        RestAssured.baseURI = "https://crudcrud.com/api/fa99ade4d11048b2af182c564229d07f";
     }
 
     @Test
     public void userShouldBeAbleToCreateStudent() {
 
-        Student student = new Student("Viktor Mamonov", 3);
+        Student student = Student.builder()
+                .name("Viktor Mamonov")
+                .grade(3).build();
 
-        StudentRequests.createStudent(student.toJson());
+        StudentRequests.createStudent(student);
     }
 
     @Test
     public void userShouldBeAbleToEnsureStudentExists() {
-        Student student = new Student("Evgeniy Razumov", 5);
+        Student student = Student.builder()
+                .name("Evgeniy Razumov")
+                .grade(5).build();
 
-        String studentId = StudentRequests.createStudent(student.toJson());
-        StudentRequests.getStudent(studentId);
+        Student createdStudent = StudentRequests.createStudent(student);
+        StudentRequests.getStudent(createdStudent.getId());
     }
 
     @Test
     public void userShouldBeAbleToDeleteExistingStudent() {
-        Student student = new Student("Ivan Sokolov", 1);
-        String studentId = StudentRequests.createStudent(student.toJson());
+        Student student = Student.builder()
+                .name("Ivan Sokolov")
+                .grade(1).build();
+        Student createdStudent = StudentRequests.createStudent(student);
 
-        StudentRequests.deleteStudent(studentId);
+        StudentRequests.deleteStudent(createdStudent.getId());
 
-        StudentAsserts.assertStudentNotExists(studentId);
+        StudentAsserts.assertStudentNotExists(createdStudent.getId());
     }
 }
 
