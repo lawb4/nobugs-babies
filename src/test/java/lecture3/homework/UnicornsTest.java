@@ -34,7 +34,6 @@ public class UnicornsTest {
                 UnicornRequests.createUnicornJsonBody("Rainbow Dash", "orange"));
 
         UnicornAsserts.assertUnicornHasValidColorTail(unicornId, "orange");
-        //UnicornRequests.getUnicorn(unicornId);
     }
 
     @Test
