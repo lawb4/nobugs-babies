@@ -1,33 +1,38 @@
 package lecture4ui.practice;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Configuration;
+import lecture4ui.practice.ui.data.BankAccount;
+import lecture4ui.practice.ui.pages.RegisterAccountPage;
+import lecture4ui.practice.utils.RandomData;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.element;
 
 public class SimpleUiTest {
 
+    @BeforeAll
+    public static void setupUiTests() {
+        Configuration.baseUrl = "https://parabank.parasoft.com";
+        //Configuration.browser = "safari";
+        //Configuration.timeout = 5000;
+    }
+
     @Test
     public void userCanNotCreateAccountWithNameAndSurnameOnly() {
-        // Подготовка
-        Selenide.open("https://parabank.parasoft.com/parabank/register.htm");
+        // Подготовка страницы
+        RegisterAccountPage registerAccountPage = new RegisterAccountPage();
+        registerAccountPage.open();
 
-        // Шаги теста
-        SelenideElement firstName = element(Selectors.byId("customer.firstName"));
-        firstName.sendKeys("Ivan");
+        // Подготовка данных
+        BankAccount bankAccount = BankAccount.builder()
+                .firstName(RandomData.randomString())
+                .lastName(RandomData.randomString())
+                .build();
 
-        SelenideElement lastName = element(Selectors.byId("customer.lastName"));
-        lastName.sendKeys("Viktorovich");
-
-        SelenideElement registerButton = element(Selectors.byValue("Register"));
-        registerButton.click();
+        registerAccountPage.register(bankAccount);
 
         // Проверка ожидаемого результата
-        SelenideElement addressError = element(Selectors.byId("customer.address.street.errors"));
-        addressError.shouldHave(Condition.exactText("Address is required."));
-        // TODO все оставшиеся обязательные поля (что там осталась ошибка)
+        registerAccountPage.getAddressError().shouldHave(Condition.exactText("Address is required."));
+
     }
 }
