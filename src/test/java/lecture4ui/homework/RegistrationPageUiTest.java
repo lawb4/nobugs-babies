@@ -7,7 +7,7 @@ import lecture4ui.homework.ui.pages.RegisterAccountPage;
 import lecture4ui.homework.ui.pages.SuccessfulRegistrationPage;
 import lecture4ui.homework.utils.RandomData;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test; 
 
 public class RegistrationPageUiTest {
 
