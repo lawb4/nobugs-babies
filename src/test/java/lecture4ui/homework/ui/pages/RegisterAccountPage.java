@@ -7,6 +7,7 @@ import lecture4ui.homework.ui.data.BankAccount;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.element;
+import static lecture4ui.homework.utils.Helpers.setInputIfNotNull;
 
 @Getter
 public class RegisterAccountPage {
@@ -63,17 +64,18 @@ public class RegisterAccountPage {
 
     public void register(BankAccount bankAccount) {
 
-        firstNameInput.sendKeys(bankAccount.getFirstName());
-        lastNameInput.sendKeys(bankAccount.getLastName());
-        addressInput.sendKeys(bankAccount.getAddress());
-        cityInput.sendKeys(bankAccount.getCity());
-        stateInput.sendKeys(bankAccount.getState());
-        zipCodeInput.sendKeys(bankAccount.getZipCode());
-        phoneInput.sendKeys(bankAccount.getPhone());
-        ssnInput.sendKeys(bankAccount.getSsn());
-        usernameInput.sendKeys(bankAccount.getUsername());
-        passwordInput.sendKeys(bankAccount.getPassword());
-        repeatedPasswordInput.sendKeys(bankAccount.getRepeatedPassword());
+        setInputIfNotNull(firstNameInput, bankAccount.getFirstName());
+        setInputIfNotNull(lastNameInput, bankAccount.getLastName());
+        setInputIfNotNull(addressInput, bankAccount.getAddress());
+        setInputIfNotNull(cityInput, bankAccount.getCity());
+        setInputIfNotNull(stateInput, bankAccount.getState());
+        setInputIfNotNull(zipCodeInput, bankAccount.getZipCode());
+        setInputIfNotNull(phoneInput, bankAccount.getPhone());
+        setInputIfNotNull(ssnInput, bankAccount.getSsn());
+        setInputIfNotNull(usernameInput, bankAccount.getUsername());
+        setInputIfNotNull(passwordInput, bankAccount.getPassword());
+        setInputIfNotNull(repeatedPasswordInput, bankAccount.getRepeatedPassword());
+        setInputIfNotNull(firstNameInput, bankAccount.getFirstName());
 
         registerButton.click();
     }
