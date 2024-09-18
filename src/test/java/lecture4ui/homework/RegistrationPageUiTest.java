@@ -93,15 +93,6 @@ public class RegistrationPageUiTest {
         BankAccount bankAccount = BankAccount.builder()
                 .firstName(RandomData.randomString())
                 .lastName(RandomData.randomString())
-                .address("")
-                .city("")
-                .state("")
-                .zipCode("")
-                .phone("")
-                .ssn("")
-                .username("")
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -124,17 +115,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
                 .address(RandomData.randomString())
-                .city("")
-                .state("")
-                .zipCode("")
-                .phone("")
-                .ssn("")
-                .username("")
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -158,17 +139,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
                 .city(RandomData.randomString())
-                .state("")
-                .zipCode("")
-                .phone("")
-                .ssn("")
-                .username("")
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -192,17 +163,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
-                .city("")
                 .state(RandomData.randomString())
-                .zipCode("")
-                .phone("")
-                .ssn("")
-                .username("")
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -226,17 +187,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
-                .city("")
-                .state("")
                 .zipCode(RandomData.randomString())
-                .phone("")
-                .ssn("")
-                .username("")
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -260,17 +211,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
-                .city("")
-                .state("")
-                .zipCode("")
-                .phone("")
                 .ssn(RandomData.randomString())
-                .username("")
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -294,17 +235,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
-                .city("")
-                .state("")
-                .zipCode("")
-                .phone("")
-                .ssn("")
                 .username(RandomData.randomString())
-                .password("")
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -328,17 +259,7 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
-                .city("")
-                .state("")
-                .zipCode("")
-                .phone("")
-                .ssn("")
-                .username("")
                 .password(RandomData.randomString())
-                .repeatedPassword("")
                 .build();
 
         registerAccountPage.register(bankAccount);
@@ -362,16 +283,6 @@ public class RegistrationPageUiTest {
         registerAccountPage.open();
 
         BankAccount bankAccount = BankAccount.builder()
-                .firstName("")
-                .lastName("")
-                .address("")
-                .city("")
-                .state("")
-                .zipCode("")
-                .phone("")
-                .ssn("")
-                .username("")
-                .password("")
                 .repeatedPassword(RandomData.randomString())
                 .build();
 
