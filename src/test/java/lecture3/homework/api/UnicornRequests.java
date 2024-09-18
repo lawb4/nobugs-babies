@@ -27,7 +27,6 @@ public class UnicornRequests {
 
         return given()
                 .body(unicornJson)
-                .contentType(ContentType.JSON)
                 .when()
                 .post(UNICORNS_API_PATH)
                 .then()
