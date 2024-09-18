@@ -2,7 +2,6 @@ package lecture3.practice.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapperType;
 import lecture3.practice.api.models.Student;
 import org.apache.http.HttpStatus;
@@ -23,7 +22,6 @@ public class StudentRequests {
 
         return given()
                 .body(studentJson)
-                .contentType(ContentType.JSON)
                 .when()
                 .post("/student")
                 .then()
